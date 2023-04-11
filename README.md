@@ -6,7 +6,7 @@ Pengumpulan Tugas : Flutter Layout
 # Identitas Kelompok
 Nama anggota :
 - Muhammad Nur Hanif (123200123)
-- Alfinhi Hajid Dhia
+- Alfinhi Hajid Dhia (123200142)
 
 Kelas : TPM IF-D
 
