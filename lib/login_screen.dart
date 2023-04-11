@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tugas4_flutterlayout/main.dart';
+import 'package:tugas4_flutterlayout/navbar.dart';
 
 class LoginScreen extends StatefulWidget {
+  LoginScreen({Key? key}) : super(key: key);
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -95,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       passController.clear();
 
                       Route route = MaterialPageRoute(
-                      builder: (context) => HomePage());
+                      builder: (context) => Navbar());
                       Navigator.push(context, route);
                     } 
                   },
