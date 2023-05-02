@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Main Menu'),
+        title: const Text('Main Menu'),
         centerTitle: true,
       ),
       body: Center(
@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
               height: 60,
               width: 200,
               child: ElevatedButton(
-                child: Text('Data Diri Kelompok'),
+                child: const Text('Data Diri Kelompok'),
                 onPressed: () {
                   Navigator.pushNamed(context, '/menu1');
                 },
@@ -29,36 +29,22 @@ class HomePage extends StatelessWidget {
               height: 60,
               width: 200,
               child: ElevatedButton(
-                child: Text('Stopwatch App'),
+                child: const Text('Stopwatch App'),
                 onPressed: () {
                   Navigator.pushNamed(context, '/menu2');
                 },
               ),
             ),
-            // SizedBox(
-            //   height: 60,
-            //   width: 200,
-            //   child: ElevatedButton(
-            //     child: Text('Kalendar'),
-            //     onPressed: () {
-            //       Navigator.pushNamed(context, '/menu3');
-            //     },
-            //   ),
-            // ),
-            // SizedBox(
-            //   height: 60,
-            //   width: 200,
-            //   child: ElevatedButton(
-            //     style: ElevatedButton.styleFrom(
-            //       primary: Colors.blueGrey,
-            //       onPrimary: Colors.white,
-            //     ),
-            //     child: Text('Logout'),
-            //     onPressed: () {
-            //       Navigator.pushNamed(context, '/menu4');
-            //     },
-            //   ),
-            // ),
+            SizedBox(
+              height: 60,
+              width: 200,
+              child: ElevatedButton(
+                child: const Text('Movie Recommendation'),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/menu3');
+                },
+              ),
+            ),
           ],
         ),
       ),

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:tugas4_flutterlayout/datadiri.dart';
 import 'package:tugas4_flutterlayout/login_screen.dart';
+import 'package:tugas4_flutterlayout/rekomendasi.dart';
 import 'package:tugas4_flutterlayout/stopwatch.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,12 +17,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginScreen(),
+      home: const LoginScreen(),
       routes: {
-        '/menu1': (context) => MenuDataDiri(),
-        '/menu2': (context) => StopwatchApp(),
-        // '/menu3': (context) => MenuFilm(),
-        // '/menu4': (context) => FavoriteFilm(),
+        '/menu1': (context) => const MenuDataDiri(),
+        '/menu2': (context) => const StopwatchApp(),
+        '/menu3': (context) => const MovieListPage(),
       },
     );
   }

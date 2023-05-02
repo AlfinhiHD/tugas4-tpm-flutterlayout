@@ -12,7 +12,7 @@ class Navbar extends StatefulWidget {
 
 class _NavbarState extends State<Navbar> {
   int _bottomNavCurrentIndex = 0;
-  final List<Widget> _container =  [HomePage(), BantuanPage(), LoginScreen()];
+  final List<Widget> _container =  [const HomePage(), const BantuanPage(), const LoginScreen()];
 
   @override
   void initState() {

@@ -2,22 +2,27 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class StopwatchApp extends StatefulWidget {
+  const StopwatchApp({Key? key}) : super(key: key);
+
   @override
   _StopwatchWidgetState createState() => _StopwatchWidgetState();
 }
 
 class _StopwatchWidgetState extends State<StopwatchApp> {
-  Stopwatch _stopwatch = Stopwatch();
+  final Stopwatch _stopwatch = Stopwatch();
   Timer? _timer;
-  Duration _duration = Duration(milliseconds: 0);
+  Duration _duration = const Duration(milliseconds: 0);
 
   void _startTimer() {
     setState(() {
       _stopwatch.start();
-      _timer = Timer.periodic(Duration(milliseconds: 10), (timer) {
+      _timer = Timer.periodic(const Duration(milliseconds: 10), (timer) {
         setState(() {
           _duration = _stopwatch.elapsed;
         });
+        if (_duration >= const Duration(seconds: 60)) {
+          _stopTimer();
+        }
       });
     });
   }
@@ -33,7 +38,7 @@ class _StopwatchWidgetState extends State<StopwatchApp> {
   void _resetTimer() {
     setState(() {
       _stopwatch.reset();
-      _duration = Duration(milliseconds: 0);
+      _duration = const Duration(milliseconds: 0);
     });
   }
 
@@ -41,7 +46,7 @@ class _StopwatchWidgetState extends State<StopwatchApp> {
     String twoDigits(int n) => n.toString().padLeft(2, "0");
     String threeDigits(int n) => n.toString().padLeft(3, "0");
 
-    String twoDigitHours = twoDigits(duration.inHours);
+    String twoDigitHours = twoDigits(duration.inHours.remainder(24));
     String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
     String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
     String threeDigitMilliseconds = threeDigits(duration.inMilliseconds.remainder(1000));
@@ -58,7 +63,7 @@ class _StopwatchWidgetState extends State<StopwatchApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Stopwatch'),
+        title: const Text('Stopwatch'),
         backgroundColor: Colors.blue,
       ),
       body: Column(
@@ -66,9 +71,9 @@ class _StopwatchWidgetState extends State<StopwatchApp> {
         children: [
           Text(
             _formatDuration(_duration),
-            style: TextStyle(fontSize: 40),
+            style: const TextStyle(fontSize: 40),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -76,7 +81,7 @@ class _StopwatchWidgetState extends State<StopwatchApp> {
                 onPressed: _stopwatch.isRunning ? _stopTimer : _startTimer,
                 child: Text(
                   _stopwatch.isRunning ? "Stop" : "Start",
-                  style: TextStyle(fontSize: 20),
+                  style: const TextStyle(fontSize: 20),
                 ),
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
@@ -84,7 +89,7 @@ class _StopwatchWidgetState extends State<StopwatchApp> {
               ),
               ElevatedButton(
                 onPressed: _stopwatch.isRunning ? null : _resetTimer,
-                child: Text(
+                child: const Text(
                   "Reset",
                   style: TextStyle(fontSize: 20),
                 ),
